@@ -1,1 +1,7 @@
 *.exe
+*.out
+a.out
+
+# Input/output scratch files
+input.txt
+output.txt

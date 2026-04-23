@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C++: g++ build active file",
+      "type": "shell",
+      "command": "/usr/bin/g++",
+      "args": [
+        "-std=c++20",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-DLOCAL",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.out"
+      ],
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "detail": "Compile current .cpp file with g++ (C++20, -O2, warnings)"
+    },
+    {
+      "label": "C++: build and run (stdin: keyboard)",
+      "type": "shell",
+      "command": "\"${fileDirname}/${fileBasenameNoExtension}.out\"",
+      "dependsOn": "C++: g++ build active file",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "C++: build and run (stdin: input.txt)",
+      "type": "shell",
+      "command": "\"${fileDirname}/${fileBasenameNoExtension}.out\" < \"${fileDirname}/input.txt\"",
+      "dependsOn": "C++: g++ build active file",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "C++: build + run (input.txt → output.txt)",
+      "type": "shell",
+      "command": "\"${fileDirname}/${fileBasenameNoExtension}.out\" < \"${fileDirname}/input.txt\" | tee \"${fileDirname}/output.txt\"",
+      "dependsOn": "C++: g++ build active file",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": [],
+      "detail": "Ctrl+Shift+B: compile + run with input.txt, writes output to terminal and output.txt"
+    },
+    {
+      "label": "C++: build + run (keyboard → output.txt)",
+      "type": "shell",
+      "command": "\"${fileDirname}/${fileBasenameNoExtension}.out\" | tee \"${fileDirname}/output.txt\"",
+      "dependsOn": "C++: g++ build active file",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": [],
+      "detail": "Type input manually; output written to terminal + output.txt"
+    }
+  ]
+}
