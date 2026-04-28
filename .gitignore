@@ -15,6 +15,7 @@ a.out
 *.swo
 *~
 .idea/
+.vscode/
 *.code-workspace
 
 # OS files

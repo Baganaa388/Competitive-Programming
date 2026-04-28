@@ -28,6 +28,5 @@ g++ -O2 -std=c++17 solution.cpp -o solution
 │   ├── introductory/
 │   ├── sorting_and_searching/
 │   └── dynamic_programming/
-├── codeforces/
-└── .vscode/
+└── codeforces/
 ```
