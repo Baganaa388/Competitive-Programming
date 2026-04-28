@@ -8,10 +8,10 @@
 
 ### Judges
 
-| Platform | Folder |
-|----------|--------|
-| [CSES Problem Set](https://cses.fi/problemset/) | [`/CSES`](./CSES) |
-| [Codeforces](https://codeforces.com/) | [`/codeforces`](./codeforces) |
+| Platform | Folder | Solved |
+|----------|--------|--------|
+| [CSES Problem Set](https://cses.fi/problemset/) | [`/CSES`](./CSES) | 28 |
+| [Codeforces](https://codeforces.com/) | [`/codeforces`](./codeforces) | — |
 
 ### Compile & run
 
@@ -24,7 +24,10 @@ g++ -O2 -std=c++17 solution.cpp -o solution
 
 ```
 .
-├── CSES/         CSES solutions
-├── codeforces/   Codeforces solutions
-└── .vscode/      Editor config
+├── CSES/
+│   ├── introductory/
+│   ├── sorting_and_searching/
+│   └── dynamic_programming/
+├── codeforces/
+└── .vscode/
 ```
