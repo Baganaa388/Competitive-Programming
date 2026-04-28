@@ -1,7 +1,38 @@
+# Compiled binaries
 *.exe
 *.out
+*.app
+*.o
+*.obj
 a.out
 
-# Input/output scratch files
+# Debug symbols
+*.dSYM/
+*.pdb
+
+# IDE / Editor
+*.swp
+*.swo
+*~
+.idea/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Scratch I/O
 input.txt
 output.txt
+in.txt
+out.txt
+*.in
+*.out.txt
+
+# Local config
+.claude/
+.env
+
+# Build folders
+build/
+bin/
