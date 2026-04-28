@@ -4,12 +4,6 @@
   Solutions to algorithmic problems · written in C++
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white"/>
-  <img src="https://img.shields.io/github/last-commit/Baganaa388/Competitive-Programming?style=flat-square&color=blue"/>
-  <img src="https://img.shields.io/github/stars/Baganaa388/Competitive-Programming?style=flat-square&color=yellow"/>
-</p>
-
 ---
 
 ### Judges
@@ -29,7 +23,7 @@ g++ -O2 -std=c++17 solution.cpp -o solution
 ### Structure
 
 ```
-Competitive-Programming/
+.
 ├── CSES/         CSES solutions
 ├── codeforces/   Codeforces solutions
 └── .vscode/      Editor config
