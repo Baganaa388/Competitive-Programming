@@ -1,31 +1,30 @@
+import hmac
 import hashlib
+import base64
 
-target_hash = "ef574c04a1c0669ca788ddc11330dd2dcf47ca136a8bc7ea15b4635313914a2bcb7b4e79ed77ef701efe71bb71ba844592e8f6899cfa36f217575d989f14b590"
+# 1. SALT-ыг Base64-ээс decode
+SALT = base64.b64decode("dHVzZ2FsXzZh").decode()  # "tusgal_6a"
 
+TARGET = ("9c891bd5e6412fe40bb6ac225ec666c5fd551ded8c703c6d2a"
+          "931364c5b4b3202f8fcaa674633a5359df015b8a8103de4a41"
+          "75139076d4fda89a2bc23c2be66e")
+
+# 2. Эхний 4 орон (80, 58 алхмаас тодорхой) → 8058
 prefix = "8058"
 
-def check_hash(number_str):
-    encoded = number_str.encode()
-
-    hashes = {
-        "md5": hashlib.md5(encoded).hexdigest(),
-        "sha1": hashlib.sha1(encoded).hexdigest(),
-        "sha256": hashlib.sha256(encoded).hexdigest(),
-        "sha512": hashlib.sha512(encoded).hexdigest(),
-    }
-
-    for name, h in hashes.items():
-        if h == target_hash:
-            print(f"[FOUND] Number: {number_str} | Algorithm: {name}")
-            return True
-    return False
-
-
+# 3. HMAC-SHA512 ашиглан 0000-9999 хүртэл brute-force
 for i in range(10000):
-    suffix = str(i).zfill(4)
-    phone_number = prefix + suffix
-
-    if check_hash(phone_number):
+    pin = f"{i:04d}"
+    full_phone = prefix + pin                                  # 8058XXXX
+    digest = hmac.new(
+        SALT.encode(),                                          # key
+        full_phone.encode(),                                    # message
+        hashlib.sha512
+    ).hexdigest()
+    if digest == TARGET:
+        print(f"✅ Олдлоо! Бүтэн утасны дугаар: {full_phone}")
         break
 else:
-    print("No match found.")
+    print("❌ Олдсонгүй")
+
+    #test
